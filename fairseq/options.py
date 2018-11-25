@@ -45,6 +45,13 @@ def get_eval_lm_parser(default_task='language_modeling'):
     add_eval_lm_args(parser)
     return parser
 
+def get_gen_lm_parser(default_task='language_modeling'):
+    parser = get_parser('Evaluate Language Model', default_task)
+    add_dataset_args(parser, gen=True)
+    add_eval_lm_args(parser)
+    add_generation_args(parser)
+    return parser
+
 
 def eval_str_list(x, type=float):
     if x is None:
