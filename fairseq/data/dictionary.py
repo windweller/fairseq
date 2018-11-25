@@ -165,10 +165,10 @@ class Dictionary(object):
         if isinstance(f, str):
             try:
                 if not ignore_utf_errors:
-                    with open(f, 'rb', encoding='utf-8') as fd:
+                    with open(f, 'r', encoding='utf-8') as fd:
                         return cls.load(fd)
                 else:
-                    with open(f, 'rb', encoding='utf-8', errors='ignore') as fd:
+                    with open(f, 'r', encoding='utf-8', errors='ignore') as fd:
                         return cls.load(fd)
             except FileNotFoundError as fnfe:
                 raise fnfe
